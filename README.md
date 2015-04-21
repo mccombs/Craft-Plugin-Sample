@@ -10,7 +10,7 @@ Checkout out plugins, tutorials and videos at [Craftpl.us](https://www.craftpl.u
 
 + Record Install
 + SimSimple CRUD setup for managing "samples"
-+ Craft admin pavel views - index and build
++ Craft admin panel views - index and build
 + Simple list view for "samples"
 + This CRUD also runs a verification against the Sample model
 
