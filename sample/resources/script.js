@@ -7,7 +7,7 @@ $( document ).ready(function() {
         if (confirm('Delete this Sample?')) {
             Craft.postActionRequest('sample/delete', {'id': $(this).data('id')});
             $(this).closest('tr').slideUp();
-            Craft.cp.displayNotice('404 Deleted');
+            Craft.cp.displayNotice('Sample Deleted');
         }       
 
     });

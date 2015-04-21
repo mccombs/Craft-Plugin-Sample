@@ -17,7 +17,7 @@ class SampleVariable
     {
         return craft()->sample->samples();
     }
-    // Grab an individual
+    // Grab an individual Sample
     public function getSample($sampleId)
     {
         return craft()->sample->getSample($sampleId);

@@ -69,7 +69,6 @@ class SampleService extends BaseApplicationComponent
         }
     }
 
-
     public function delete($id)
     {
         $record = SampleRecord::model()->findByPk($id);
