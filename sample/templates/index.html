@@ -1,0 +1,54 @@
+{% extends '_layouts/cp' %}
+
+{% set tabs = {
+    index:     { label: "Index"|t, url: url('sample/') },
+    build:     { label: "Build"|t, url: url('sample/build') },
+} %}
+
+{% set title = "Sample Plugin" %}
+
+{% set selectedTab = 'index' %}
+
+{% set content %}
+    
+    {% set samples = craft.sample.samples() %}
+
+    {% if samples %}
+        <h1 class="left">Your Samples</h1>
+        <div class="elements">
+        <div class="tableview">
+        <table class="data">
+            <thead>
+                <tr><th scope="col">Name</th>
+                <th scope="col">Description</th>
+                <th scope="col">Create Date</th>
+                <th scope="col">Last Updated</th>
+                <th scope="col">Actions</th>
+            </tr></thead>
+            <tbody>
+                {% for sample in samples %}
+                    <tr>
+                        <td><a href="{{ url('sample/build/'~sample.id) }}">{{ sample.name }}</a></td>
+                        <td>{{ sample.desc|trim[:50] }}...</td>
+                        <td>{{ sample.dateCreated|date('M. d, Y') }}</td>
+                        <td>{{ sample.dateUpdated|date('M. d, Y') }}</td>
+                        <td><a href="{{ url('sample/build/'~sample.id) }}" class="action settings icon" title="Settings"></a> 
+                        <a class="action delete icon" data-id="{{ sample.id }}"  title="Remove"></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        </div>
+        </div>
+    {% else %}
+        <h1>Oops you don't have any samples yet</h1>
+        <p>Why don't you create one?</p>
+        <a href="{{ url('sample/build/') }}"><button class="btn submit">Create Sample</button></a>
+    {% endif %}
+
+<style>
+    table {width: 100%}
+</style>
+{% endset %}
+
+{% includeJsResource "sample/script.js" %}
